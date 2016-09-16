@@ -8,10 +8,18 @@
     <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
   </head>
   <body>
-    <div id="example"></div>
+    <div id="content"></div>
     <script type="text/babel">
 
-      // ** Your code goes here! **
+      var App = React.createClass({
+        render: function() {
+          return(
+            <div>Hello world</div>
+          )
+        }
+      });
+
+      ReactDOM.render(<App/>, document.getElementById('content'));
 
     </script>
   </body>
