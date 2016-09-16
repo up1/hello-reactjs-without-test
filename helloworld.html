@@ -14,7 +14,37 @@
       var App = React.createClass({
         render: function() {
           return(
-            <div>Hello world</div>
+            <div>
+              <Profile/>
+              <Projects/>
+            </div>
+          )
+        }
+      });
+
+      var Profile = React.createClass({
+        render: function() {
+          return(
+            <div>
+              <h1>Clear thinking at the wrong moment</h1>
+            </div>
+          )
+        }
+      });
+
+      var Projects = React.createClass({
+        render: function() {
+          return(
+            <div>
+              <div>
+                <img src="first.jpg" width="100"/>
+                <h3>Project 01</h3>
+              </div>
+              <div>
+                <img src="second.jpg" width="100"/>
+                <h3>Project 02</h3>
+              </div>
+            </div>
           )
         }
       });
