@@ -11,12 +11,29 @@
     <div id="content"></div>
     <script type="text/babel">
 
+      var profileData = {
+        data: 'Clear thinking at the wrong moment'
+      };
+
+      var projectList = [
+        {
+          id: 1,
+          name: 'Project 01',
+          image: 'first.jpg'
+        },
+        {
+          id: 2,
+          name: 'Project 02',
+          image: 'second.jpg'
+        }
+      ];
+
       var App = React.createClass({
         render: function() {
           return(
             <div>
-              <Profile/>
-              <Projects/>
+              <Profile name={this.props.profile.data} />
+              <Projects projectList={this.props.projectList} />
             </div>
           )
         }
@@ -26,7 +43,18 @@
         render: function() {
           return(
             <div>
-              <h1>Clear thinking at the wrong moment</h1>
+              <h1>{this.props.name}</h1>
+            </div>
+          )
+        }
+      });
+
+      var ProjectItem = React.createClass({
+        render: function() {
+          return (
+            <div>
+              <img src={this.props.data.image} width="100"/>
+              <h3>{this.props.data.name}</h3>
             </div>
           )
         }
@@ -36,20 +64,15 @@
         render: function() {
           return(
             <div>
-              <div>
-                <img src="first.jpg" width="100"/>
-                <h3>Project 01</h3>
-              </div>
-              <div>
-                <img src="second.jpg" width="100"/>
-                <h3>Project 02</h3>
-              </div>
+              {this.props.projectList.map(function(project) {
+                  return <ProjectItem key={project.id} data={project}/>;
+              })}
             </div>
           )
         }
       });
 
-      ReactDOM.render(<App/>, document.getElementById('content'));
+      ReactDOM.render(<App profile={profileData} projectList={projectList}/>, document.getElementById('content'));
 
     </script>
   </body>
